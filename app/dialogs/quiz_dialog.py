@@ -83,7 +83,7 @@ select = Select(
 ui = Dialog(
     Window(
         select,
-        Format("<b> {question} </b>"),
+        Format("<b> {question} </b>\n"),
         Format("{answers}"),
         getter=get_data,
         state=QuizDialog.first,
@@ -91,7 +91,7 @@ ui = Dialog(
 
     Window(
         select,
-        Format("<b> {question} </b>"),
+        Format("<b> {question} </b>\n"),
         Format("{answers}"),
         # Button(Const("Вернуться"), id="back", on_click=go_back),
         getter=get_data,
@@ -100,7 +100,7 @@ ui = Dialog(
 
     Window(
         select,
-        Format("<b> {question} </b>"),
+        Format("<b> {question} </b>\n"),
         Format("{answers}"),
         # Button(Const("Вернуться"), id="back", on_click=go_back),
         getter=get_data,
@@ -109,7 +109,7 @@ ui = Dialog(
 
     Window(
         select,
-        Format("<b> {question} </b>"),
+        Format("<b> {question} </b>\n"),
         Format("{answers}"),
         # Button(Const("Вернуться"), id="back", on_click=go_back),
         getter=get_data,
@@ -119,7 +119,7 @@ ui = Dialog(
     Window(
         select,
 
-        Format("<b> {question} </b>"),
+        Format("<b> {question} </b>\n"),
         Format("{answers}"),
         # Button(Const("Вернуться"), id="back", on_click=go_back),
         getter=get_data,
@@ -135,7 +135,7 @@ ui = Dialog(
             on_click=finish_quiz,
         ),
         # Button(Const("Вернуться"), id="back", on_click=go_back),
-        Format("<b> {question} </b>"),
+        Format("<b> {question} </b>\n"),
         Format("{answers}"),
         getter=get_data,
         state=QuizDialog.finish,

@@ -47,7 +47,7 @@ def result_keyboard_friend_club():
 def result_keyboard_finish():
     keyboard = InlineKeyboardBuilder()
     keyboard.row(
-        InlineKeyboardButton(text=f'Получить контакты', callback_data=f"contacts")
+        InlineKeyboardButton(text=u"\U00002764", callback_data=f"contacts")
     )
     keyboard.row(
         InlineKeyboardButton(text=f'Повторить викторину', callback_data=f"start_journey")

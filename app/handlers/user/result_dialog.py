@@ -73,9 +73,9 @@ async def result_friend_club(callback: CallbackQuery, bot: Bot, state: FSMContex
 
     await asyncio.sleep(3)
     await callback.message.answer(
-        f"Также Вы можешь связаться с нами напрямую используя команду <b>/connect</b>\n"
-        f"Или пройти викторину повторно. \n"
-        f"До встречи!",
+        f"Если Вас заинтересовала программа опеки, то нажмите на сердечко и мы обязательно свяжемся с Вами.\n"
+        f"Также Вы можешь связаться с нами напрямую используя команду <b>/connect</b>\n\n"
+        f"<b>До встречи!</b>",
         reply_markup=result_keyboard_finish(),
     )
     await state.clear()
