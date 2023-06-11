@@ -43,10 +43,11 @@ async def result_image(callback: CallbackQuery, bot: Bot, state: FSMContext):
     totem_pic = BufferedInputFile(img_bytes, filename="totem.png")
     await state.update_data(totem_pic=totem_pic)
 
+    bot_information = await bot.get_me()
+
     await bot.send_photo(callback.from_user.id, totem_pic,
-                         caption=f'<b>{totem_animal.name} </b>{description.description}\n\n'
-                                 f'Вы можете почитать подробнее об этом прекрасном животном или поделиться '
-                                 f'результатом с друзьями!',
+                         caption=f'<b>{totem_animal.name} </b>{description.description}\n'
+                                 f'@{bot_information.username}',
                          reply_markup=result_keyboard_animal_url(totem_animal.name, totem_animal.url))
 
     await asyncio.sleep(3)
