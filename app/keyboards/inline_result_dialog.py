@@ -5,7 +5,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 def result_keyboard_what(code_number):
     keyboard = InlineKeyboardBuilder()
     keyboard.add(
-        InlineKeyboardButton(text='😕', callback_data=f"prefix_{code_number}"),
+        InlineKeyboardButton(text='Ну же, не молчи...', callback_data=f"prefix_{code_number}"),
     )
     return keyboard.as_markup()
 

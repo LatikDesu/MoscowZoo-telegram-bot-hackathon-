@@ -2,6 +2,8 @@ import random
 from typing import Union
 
 from tortoise.exceptions import DoesNotExist
+from tortoise.expressions import Q
+from tortoise.functions import Count
 
 from app.db import models
 
@@ -22,11 +24,33 @@ class User(models.User):
     async def get_count(cls) -> int:
         return await cls.all().count()
 
+    @classmethod
+    async def get_totem_count(cls) -> int:
+        count = await User.annotate(count=Count('totem', _filter=~Q(totem=''))).values_list("count", flat=True)
+        return count[0]
+
+    @classmethod
+    async def get_contact_count(cls) -> int:
+        count = await User.annotate(count=Count('is_contact', _filter=~Q(is_contact=False))).values_list("count",
+                                                                                                         flat=True)
+        return count[0]
+
+    @classmethod
+    async def user_complete_quiz(cls, telegram_id: int, totem_name: str):
+        try:
+            await User.filter(telegram_id=telegram_id).update(totem=totem_name)
+        except DoesNotExist:
+            return False
+
+    @classmethod
+    async def user_wants_contact(cls, telegram_id: int, username: str):
+        try:
+            await User.filter(telegram_id=telegram_id).update(contact=username, is_contact=True)
+        except DoesNotExist:
+            return False
+
 
 class Animals(models.Animals):
-    @classmethod
-    async def get_count(cls) -> int:
-        return await cls.all().count()
 
     @classmethod
     async def get_totem_animal(cls, code: int):

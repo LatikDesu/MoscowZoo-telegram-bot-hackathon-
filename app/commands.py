@@ -7,9 +7,9 @@ from app.config import Config
 users_commands = {
     "start": "Начать работу",
     "journey": "Отправиться в путешествие",
-    "help": "Показать список команд",
     "connect": "Связаться с нами",
-    "pic_of_day": "Получить животное дня"
+    "pic_of_day": "Получить животное дня",
+    "help": "Показать список команд",
 }
 
 owner_commands = {**users_commands, "ping": "Check bot ping", "stats": "Show bot stats"}

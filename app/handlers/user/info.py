@@ -32,14 +32,3 @@ async def about_handler(message: Message, bot: Bot, config: Config):
         f"<b>Email - </b> a.sharapova@moscowzoo.ru \n",
         reply_markup=get_author_keyboard(owner_id=config.settings.owner_id),
     )
-
-# @router.callback_query(Text("contacts"))
-# async def about_handler(callback: CallbackQuery, bot: Bot, config: Config):
-#     bot_information = await bot.get_me()
-#     await callback.message.answer(
-#         "<b>ℹ️ Информация для связи по вопросам программы Опеки:</b> \n\n"
-#         f"<b>Телефон - </b> +7 (958) 813-15-60 \n"
-#         f"<b>Email - </b> a.sharapova@moscowzoo.ru \n",
-#         reply_markup=get_author_keyboard(owner_id=config.settings.owner_id),
-#     )
-#     await callback.answer()

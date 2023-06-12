@@ -26,18 +26,17 @@ async def get_data(dialog_manager: DialogManager, **kwargs):
     dialog_manager.current_context().dialog_data["counter"] = counter + 1
 
     dialog_data = dialog_manager.start_data
+    code = dialog_data.get(int(counter)).get("code")
+    code_line = dialog_manager.current_context().dialog_data["code"] = code
 
     return {
         "question": dialog_data.get(int(counter)).get("question"),
         "answers": '\n'.join(dialog_data.get(int(counter)).get("answers")),
-        "code": dialog_data.get(int(counter)).get("code"),
-        "counter": counter
     }
 
 
 async def on_selected(c: CallbackQuery, widget: Any, manager: DialogManager, item_id: str):
-    counter = manager.current_context().dialog_data.get("counter", 1)
-    code_line = manager.start_data.get(int(counter) - 1).get("code")
+    code_line = manager.current_context().dialog_data.get("code")
     code_id = code_line[int(item_id) - 1]
 
     code_string.append(code_id)

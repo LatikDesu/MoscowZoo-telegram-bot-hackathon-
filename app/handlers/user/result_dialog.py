@@ -7,7 +7,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import BufferedInputFile, CallbackQuery, Message
 
-from app.db.functions import Animals, ResultDescription
+from app.db.functions import Animals, ResultDescription, User
 from app.db.image_generator import create_totem_pic
 from app.keyboards.inline_result_dialog import (result_keyboard_animal_url,
                                                 result_keyboard_finish,
@@ -26,7 +26,6 @@ class ResultState(StatesGroup):
 @router.callback_query(Text(startswith="prefix_"))
 async def result_image(callback: CallbackQuery, bot: Bot, state: FSMContext):
     await callback.message.edit_reply_markup(reply_markup=None)
-    await callback.message.answer(f" 😻 ")
 
     animal_code = callback.data.split("_")[1]
 
@@ -41,7 +40,8 @@ async def result_image(callback: CallbackQuery, bot: Bot, state: FSMContext):
     img_bytes = buffered.getvalue()
 
     totem_pic = BufferedInputFile(img_bytes, filename="totem.png")
-    await state.update_data(totem_pic=totem_pic)
+
+    await User.user_complete_quiz(callback.from_user.id, totem_animal.name)
 
     bot_information = await bot.get_me()
 
