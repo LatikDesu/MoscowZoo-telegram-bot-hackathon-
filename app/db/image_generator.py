@@ -31,6 +31,7 @@ def generate_text(animal_pic, animal_name):
 def create_totem_pic(animal_pic, animal_name):
     result_image = generate_pic(animal_pic, schema=1)
     result_image = generate_text(animal_pic=result_image, animal_name=animal_name)
+    
     return result_image
 
 

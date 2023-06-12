@@ -2,7 +2,7 @@ import time
 
 from aiogram import Router
 from aiogram.filters import Command, Text
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import CallbackQuery, Message
 
 from app.db.functions import User
 from app.filters.is_owner import IsOwner

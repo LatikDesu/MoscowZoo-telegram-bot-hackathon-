@@ -12,7 +12,7 @@ users_commands = {
     "help": "Показать список команд",
 }
 
-owner_commands = {**users_commands, "admin": "admin panel", "stats": "Show bot stats"}
+owner_commands = {**users_commands, "admin": "admin panel"}
 
 
 async def setup_bot_commands(bot: Bot, config: Config):

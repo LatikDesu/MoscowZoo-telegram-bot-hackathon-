@@ -20,7 +20,6 @@ from app.config import Config, parse_config
 from app.db import close_orm, init_orm
 from app.dialogs import register_dialogs
 from app.handlers import get_handlers_router
-from app.inline.handlers import get_inline_router
 from app.middlewares import register_middlewares
 
 
@@ -30,7 +29,6 @@ async def on_startup(
     register_middlewares(dp=dispatcher, config=config)
 
     dispatcher.include_router(get_handlers_router())
-    dispatcher.include_router(get_inline_router())
 
     register_dialogs(registry)
 

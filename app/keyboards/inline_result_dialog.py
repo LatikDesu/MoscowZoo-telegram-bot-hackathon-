@@ -18,15 +18,6 @@ def result_keyboard_animal_url(name, url):
     return keyboard.as_markup()
 
 
-def result_keyboard_share():
-    keyboard = InlineKeyboardBuilder()
-    keyboard.add(
-        InlineKeyboardButton(text=f'Поделиться', switch_inline_query='Я нашел себе новую семью! \n'
-                                                                     f'https://t.me/ZooMow_bot'),
-    )
-    return keyboard.as_markup()
-
-
 def result_keyboard_info():
     keyboard = InlineKeyboardBuilder()
     keyboard.add(
