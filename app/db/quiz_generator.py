@@ -21,10 +21,10 @@ def create_question(question):
         answers[i] = f"{i + 1}. {item}"
 
     result = {
-        tier: {"question": question_text,
-               "answers": answers,
-               "code": code,
-               }
+        str(tier): {"question": question_text,
+                    "answers": answers,
+                    "code": code,
+                    }
     }
 
     return result

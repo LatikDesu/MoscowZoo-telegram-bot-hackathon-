@@ -100,12 +100,20 @@ async def main():
     bot = Bot(token, **bot_settings)
 
     if config.storage.use_persistent_storage:
-        storage = RedisStorage(
-            redis=RedisStorage.from_url(config.storage.redis_url),
-            key_builder=DefaultKeyBuilder(with_destiny=True),
-        )
+        storage = RedisStorage.from_url(config.storage.redis_url)
+        storage.key_builder = DefaultKeyBuilder(with_destiny=True)
+        logging.warning("Redis storage ok")
     else:
         storage = MemoryStorage()
+
+    # if config.storage.use_persistent_storage:
+    #     storage = RedisStorage(
+    #         redis=RedisStorage.from_url(config.storage.redis_url),
+    #         key_builder=DefaultKeyBuilder(with_destiny=True),
+    #     )
+    #     logging.warning("Redis storage ok")
+    # else:
+    #     storage = MemoryStorage()
 
     dp = Dispatcher(storage=storage)
     dp.startup.register(on_startup)
