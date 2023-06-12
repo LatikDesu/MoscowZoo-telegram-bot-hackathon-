@@ -49,6 +49,24 @@ class User(models.User):
         except DoesNotExist:
             return False
 
+    @classmethod
+    async def user_requests(cls) -> str:
+        user_request_list = []
+
+        request_list = await User.filter(is_contact=True).values("telegram_id", "contact", "totem")
+
+        for request in request_list:
+            user_request_list.append(
+                f'<b> id пользователя: </b> {request.get("telegram_id")}\n'
+                f'<b> Имя пользователя: </b> {request.get("contact")}\n'
+                f'<b> Тотемное животное: </b> {request.get("totem")}'
+            )
+
+        print(request_list)
+        print(user_request_list)
+
+        return f"\n{'_' * 32}\n".join(map(str, user_request_list))
+
 
 class Animals(models.Animals):
 
