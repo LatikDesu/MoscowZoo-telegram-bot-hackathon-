@@ -62,9 +62,6 @@ class User(models.User):
                 f'<b> Тотемное животное: </b> {request.get("totem")}'
             )
 
-        print(request_list)
-        print(user_request_list)
-
         return f"\n{'_' * 32}\n".join(map(str, user_request_list))
 
 
