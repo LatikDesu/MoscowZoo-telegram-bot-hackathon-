@@ -6,9 +6,10 @@ models = ["app.db.functions", "aerich.models"]
 
 [storage]
 use_persistent_storage = false
+# if redis - True
 # redis_url = "redis://user:password@host:port/db"
 
-[webhook] # (Optional) Settings for Webhook, disabled by default
+[webhook]
 port = 1234
 # url = "https://example.com" # (Optional) Webhook URL
 # path = "/webhook" # (Optional) Webhook URL path
@@ -16,12 +17,9 @@ port = 1234
 [settings]
 owner_id = ""YOUR ID""
 throttling_rate = 0.5
-use_webhook = false # (Optional)
+use_webhook = false
 use_pyrogram_client = false
 drop_pending_updates = false
 
 [api] # API app settings for Pyrogram Client
-# Default values are from Telegram Desktop Client (t.me/durovleaks/108)
-# id = 2040 # (Optional) App ID
-# hash = "b18441a1ff607e10a989891a5462e627" # (Optional) App hash
-# bot_api_url = "https://api.telegram.org" # (Optional) Bot API URL
+

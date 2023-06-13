@@ -18,4 +18,4 @@ async def cmd_start(message: Message, bot: Bot):
     video_note = FSInputFile(r'app/crs/video/Timosha_startV_1.mp4')
     await bot.send_video_note(message.chat.id, video_note)
 
-    await message.answer(f"\t Кто здесь? \t", reply_markup=greeting_keyboard_hello(message.from_user.full_name))
+    await message.answer(f"<b> Кто здесь? 😾</b>\n", reply_markup=greeting_keyboard_hello(message.from_user.full_name))

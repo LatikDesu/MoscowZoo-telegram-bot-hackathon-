@@ -108,13 +108,6 @@ class Questions(models.Questions):
         except DoesNotExist:
             return False
 
-    @classmethod
-    async def create_question(cls, tier, question, answers, answers_code):
-        await Questions(tier=tier,
-                        question=question,
-                        answers=answers,
-                        answers_code=answers_code).save()
-
 
 class ResultDescription(models.ResultDescription):
     @classmethod

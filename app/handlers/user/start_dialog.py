@@ -1,3 +1,5 @@
+import asyncio
+
 from aiogram import Bot, F, Router
 from aiogram.filters import Text
 from aiogram.fsm.context import FSMContext
@@ -28,7 +30,7 @@ async def go_to_start_dialog(callback: CallbackQuery, bot: Bot, state: FSMContex
 
     await callback.message.answer(
         f"Я Тимофей, символ и гордость Московского зоопарка."
-        f" Я очень рад тебя видеть! А ты случайно не принес мне еды? "
+        f" Я очень рад тебя видеть! \n А ты случайно не принес мне еды? \n"
         f"Я очень люблю есть вкусняшки. 😻 \n",
         reply_markup=greeting_keyboard_sorry(),
     )
@@ -43,10 +45,14 @@ async def greeting_second(callback: CallbackQuery, bot: Bot, state: FSMContext):
     await bot.send_photo(callback.from_user.id, photo)
 
     await callback.message.answer(
-        f"Очень жаль. \n"
-        f"Так зачем ты здесь? \n"
-        f"Наверное ты хочешь стать частью моей команды? \n"
-        f"Я чувствую в тебе огромную силу - твой внутренний зверь так и рвется на волю! \n"
+        f"Очень жаль. 🙀\n"
+        f"Так зачем ты здесь? \n")
+
+    await asyncio.sleep(3)
+
+    await callback.message.answer(
+        f"Ты хочешь стать частью моей команды? \n"
+        f"Твой внутренний зверь так и рвется на волю! \n"
         f"Ты знаешь кто он? \n",
         reply_markup=greeting_keyboard_know(),
     )
@@ -60,10 +66,9 @@ async def greeting_second(callback: CallbackQuery, bot: Bot, state: FSMContext):
     await bot.send_photo(callback.from_user.id, photo)
 
     await callback.message.answer(
-        f"Отлично! \n"
         f"Тогда я задам тебе несколько вопросов, что бы выяснить кто ты "
         f"есть на самом деле! \n"
-        f"Ты готов? \n",
+        f"<b> Ты готов? </b>\n",
         reply_markup=greeting_keyboard_start_journey(),
     )
 

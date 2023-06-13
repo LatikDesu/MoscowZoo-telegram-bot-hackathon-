@@ -5,7 +5,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 def greeting_keyboard_hello(user_name):
     keyboard = InlineKeyboardBuilder()
     keyboard.add(
-        InlineKeyboardButton(text=f"Ой, извините. Меня зовут {user_name} ...",
+        InlineKeyboardButton(text=f"Ой, извините.\n Меня зовут {user_name} ...",
                              callback_data="greeting"),
     )
     return keyboard.as_markup()
