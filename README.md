@@ -11,10 +11,9 @@
 * ![TortoiseORM](https://img.shields.io/badge/0.19.3-tortoise-yellow) for data base models (SQLite)
 * ☁️ Webhook, redis and long polling with local Bot API server support
 * 🎨 Beautiful and informative colored logs
-* 🛠 Throttling and db middlewares by default
+* 🛠 Throttling and db middlewares
 * 📝 Changing UI commands
 * 👨🏻‍💻 Owner filter
-* ℹ️ Demo usage of dialogs and inline queries
 
 ## Usage
 
